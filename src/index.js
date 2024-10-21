@@ -10,9 +10,9 @@ import router from './routes.js';
 
 const app = express();                // instanciando o servidor
 
+app.use(express.json());
 app.use(cors());                      // executar o cors
 app.use(router);
-
 
 app.listen(3001, () => {
   console.log('listening on http://localhost:3001');

@@ -4,12 +4,28 @@
 
 import repositoryDoctor from '../repositories/repository.doctor.js';
 
-async function Listar() {                           // recebe os métodos do route
-  
-  const doctors = await repositoryDoctor.Listar();  // usando o método em repository
+async function Listar(name) {                           // recebe os métodos do route
+  const doctors = await repositoryDoctor.Listar(name);  // passei para o repos inserir no bd
   return doctors;
 }
 
 
+async function Inserir(name, specialty, icon){                              // recebi os dados
+  const doctor = await repositoryDoctor.Inserir(name, specialty, icon);     // passei para o repos inserir os dados
+  return doctor;
+}
 
-export default { Listar };
+
+async function Editar(id_doctor, name, specialty, icon) {
+  const doctor = await repositoryDoctor.Editar(id_doctor, name, specialty, icon);
+  return doctor;
+}
+
+
+async function Excluir(id_doctor) {
+  const doctor = await repositoryDoctor.Excluir(id_doctor); // passei para o repos inserir os dados
+  return doctor;
+}
+
+
+export default { Listar, Inserir, Editar, Excluir };
