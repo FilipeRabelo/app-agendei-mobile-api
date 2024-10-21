@@ -3,15 +3,14 @@
 // SÓ MUDA AQUI
 // nao tem acesso ao response e a req
 // acesso ao banco e trás o dados - DEVOLVE OS DADOS
+
+import { query } from "../database/sqlite.js";
+
 async function Listar() {                           // recebe os métodos do route
 
-  const doctors = [
-    { id: 1, name: 'Rafael', specialty: 'Neuro', icon: 'M' },
-    { id: 2, name: 'Filipe', specialty: 'Cardio', icon: 'M' },
-    { id: 3, name: 'Giulia', specialty: 'Pediatria', icon: 'F' },
-    { id: 4, name: 'Daniela', specialty: 'Uro', icon: 'F' }
-  ]
-
+  let sql = 'SELECT * FROM doctors';  // executando a query no banco de dados
+  const doctors = await query(sql, []);             // devolve
+  
   return doctors;
 }
 
