@@ -1,7 +1,12 @@
 import { Router } from "express";     // Router é o maestro das rotas
-import controllerDoctor from "./controllers/controller.doctor.js";
-import controllerUser from "./controllers/controller.users.js";
 import jwt from './token.js';
+
+import controllerDoctor from "./controllers/controller.doctor.js";
+
+import controllerUser from "./controllers/controller.users.js";
+
+import controllerAppointment from './controllers/controller.appointment.js'
+
 
 const router = Router();              // instanciando o Router
 
@@ -17,9 +22,11 @@ router.get('/doctors/:id_doctor/services', jwt.ValidateToken, controllerDoctor.L
 // users
 router.post("/users/register", controllerUser.Inserir) // criação de conta - post
 router.post("/users/login", controllerUser.Login) // criação de conta - post
+router.get("/users/profile", jwt.ValidateToken, controllerUser.Profile) // listar os dados do user
 
 // Reservas (appointments)
-router.get('/appointments', jwt.ValidateToken, controllerAppointment.Listar);
+router.get('/appointments', jwt.ValidateToken, controllerAppointment.ListarByUser);
+router.post('/appointments', jwt.ValidateToken, controllerAppointment.Inserir);
 
 
 

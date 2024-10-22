@@ -22,11 +22,19 @@ async function ListarByEmail(email) {                  // recebe os métodos do 
   }else{
     return user[0];
   }
-
 }
 
 
-export default { Inserir, ListarByEmail };
+async function Profile(id_user) {                       // recebe os métodos do route
+
+  let sql = `SELECT id_user, name, email FROM users WHERE id_user = ?`;     // inserindo 
+  const user = await query(sql, [id_user]);              // executando o sql
+
+  return user[0];
+}
+
+
+export default { Inserir, ListarByEmail, Profile };
 
 
 
