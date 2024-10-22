@@ -1,8 +1,11 @@
 // contem as 2 rotinas para gerar o token e validar o token
 
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv'
 
-const secretToken = "jornadaJs123";
+dotenv.config(); // Configure o dotenv
+
+const secretToken = process.env.SECRET_TOKEN;
 
 function CreateToken(id_user){                              // gerando o token
   const token = jwt.sign({id_user}, secretToken, {
