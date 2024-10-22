@@ -1,0 +1,5 @@
+{
+  "editor.autoClosingBrackets": "always",
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true
+}
