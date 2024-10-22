@@ -31,4 +31,14 @@ async function Excluir(req, res) {
 }
 
 
-export default { Listar, Inserir, Editar, Excluir };
+// SERVIÇOS MEDICOS
+
+async function ListarServicos(req, res) {                               // recebe os métodos do route
+  const id_doctor = req.params.id_doctor;
+  const serv = await serviceDoctor.ListarServicos(id_doctor);             // chama o service - monta as dados - chama o método
+
+  res.status(200).json(serv);
+}
+
+
+export default { Listar, Inserir, Editar, Excluir, ListarServicos };

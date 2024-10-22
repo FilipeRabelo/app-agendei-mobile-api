@@ -11,9 +11,16 @@ router.post('/doctors', jwt.ValidateToken, controllerDoctor.Inserir);    // cham
 router.put("/doctors/:id_doctor", jwt.ValidateToken, controllerDoctor.Editar);
 router.delete('/doctors/:id_doctor', jwt.ValidateToken, controllerDoctor.Excluir);
 
+// Services (serviços prestados pelos medicos)
+router.get('/doctors/:id_doctor/services', jwt.ValidateToken, controllerDoctor.ListarServicos);
+
 // users
 router.post("/users/register", controllerUser.Inserir) // criação de conta - post
 router.post("/users/login", controllerUser.Login) // criação de conta - post
+
+// Reservas (appointments)
+router.get('/appointments', jwt.ValidateToken, controllerAppointment.Listar);
+
 
 
 export default router;

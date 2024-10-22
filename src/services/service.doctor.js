@@ -27,5 +27,10 @@ async function Excluir(id_doctor) {
   return doctor;
 }
 
+// serviços
+async function ListarServicos(id_doctor) {                           // recebe os métodos do route
+  const serv = await repositoryDoctor.ListarServicos(id_doctor);    // passei para o repos inserir no bd
+  return serv;
+}
 
-export default { Listar, Inserir, Editar, Excluir };
+export default { Listar, Inserir, Editar, Excluir, ListarServicos };

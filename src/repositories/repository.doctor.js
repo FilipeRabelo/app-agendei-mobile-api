@@ -44,4 +44,18 @@ async function Excluir(id_doctor) {                                // recebe os 
   return { id_doctor };
 }
 
-export default { Listar, Inserir, Editar, Excluir };
+// serviços
+async function ListarServicos(id_doctor) {                          // recebe os métodos do route
+  let sql = `
+    SELECT d.id_service , s.description , d.price 
+    FROM doctors_services d
+    JOIN services s ON (s.id_service = d.id_service)
+    WHERE d.id_doctor = ?
+    ORDER BY s.description
+  `;                
+
+  const serv = await query(sql, [id_doctor]);            // executando o sql
+  return serv;
+}
+
+export default { Listar, Inserir, Editar, Excluir, ListarServicos };
