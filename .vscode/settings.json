@@ -1,5 +1,8 @@
 {
   "editor.autoClosingBrackets": "always",
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "editor.lineHeight": 19,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "auto"
 }

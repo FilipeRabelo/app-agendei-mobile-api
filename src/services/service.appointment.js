@@ -9,8 +9,7 @@ async function ListarByUser(id_user) {                           // recebe os m√
   return appointments;
 }
 
-async function Inserir(id_user, id_doctor, id_service, booking_date, booking_hour) {   
-                           
+async function Inserir(id_user, id_doctor, id_service, booking_date, booking_hour) {                    
   const appointment = await repositoryAppointments.Inserir(
     id_user, id_doctor, id_service, booking_date, booking_hour
   );     
@@ -18,5 +17,10 @@ async function Inserir(id_user, id_doctor, id_service, booking_date, booking_hou
   return appointment;
 }
 
+async function Deletar(id_user, id_appointment){
+  const appointment = await repositoryAppointments.Deletar(id_user, id_appointment);
+  return appointment;
+}
 
-export default { ListarByUser, Inserir };
+
+export default { ListarByUser, Inserir, Deletar };

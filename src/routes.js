@@ -1,12 +1,10 @@
-import { Router } from "express";     // Router é o maestro das rotas
-import jwt from './token.js';
 
 import controllerDoctor from "./controllers/controller.doctor.js";
-
 import controllerUser from "./controllers/controller.users.js";
-
 import controllerAppointment from './controllers/controller.appointment.js'
+import jwt from './token.js';
 
+import { Router } from "express";     // Router é o maestro das rotas
 
 const router = Router();              // instanciando o Router
 
@@ -27,7 +25,6 @@ router.get("/users/profile", jwt.ValidateToken, controllerUser.Profile) // lista
 // Reservas (appointments)
 router.get('/appointments', jwt.ValidateToken, controllerAppointment.ListarByUser);
 router.post('/appointments', jwt.ValidateToken, controllerAppointment.Inserir);
-
-
+router.delete('/appointments/:id_appointment', jwt.ValidateToken, controllerAppointment.Deletar);
 
 export default router;
