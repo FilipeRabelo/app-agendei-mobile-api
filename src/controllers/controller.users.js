@@ -15,7 +15,7 @@ async function Login(req, res) {
   const user = await serviceUser.Login(email, password);    // chama o service - monta as dados - chama o método
   
   if(user.length == 0){
-    res.status(401).json({error: "Email ou senha inválida"});
+    res.status(401).json({error: "E-mail ou senha Inválida!"});
   }else{
     res.status(200).json(user);                               // devolvendo os dados
   }
