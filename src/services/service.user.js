@@ -8,8 +8,8 @@
 // para gerar o token
 // npm install jsonwebtoken
 
-import bcrypt from 'bcrypt';
 import repositoryUser from '../repositories/repository.user.js';
+import bcrypt from 'bcrypt';
 import jwt from '../token.js';
 
 async function Inserir(name, email, password) {                         // recebi os dados
