@@ -9,6 +9,7 @@ async function InserirAdmin(req, res) {
 
 
 async function LoginAdmin(req, res) {
+  
   const { email, password } = req.body;                     // desestruturando do corpo da requisição 
 
   const admin = await serviceAdmin.LoginAdmin(email, password);    // chama o service - monta as dados - chama o método
